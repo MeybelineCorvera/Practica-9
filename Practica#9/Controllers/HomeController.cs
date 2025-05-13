@@ -1,9 +1,12 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Practica_9.Models;
 
-namespace Practica_9.Controllers
-{
+namespace Practica_9.Controllers;
+
+[Authorize]
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -29,4 +32,4 @@ namespace Practica_9.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-}
+

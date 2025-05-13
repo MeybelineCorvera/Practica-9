@@ -1,15 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Practica_9.Context;
+using Practica_9.Data;
 
 namespace Practica_9.Controllers
 {
+    [Authorize]
     public class CustomerController : Controller
     {
 
-        private readonly AppDbContext _context;
+        private readonly IdentityDbContext _context;
 
-        public CustomerController(AppDbContext context)
+        public CustomerController(IdentityDbContext context)
         {
             _context = context;
         }
